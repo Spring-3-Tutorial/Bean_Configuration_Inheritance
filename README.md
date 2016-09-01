@@ -1,0 +1,1 @@
+# Bean_Configuration_Inheritance
