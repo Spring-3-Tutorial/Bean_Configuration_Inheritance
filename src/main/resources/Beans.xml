@@ -1,3 +1,4 @@
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:context="http://www.springframework.org/schema/context"
@@ -6,13 +7,24 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-2.5.xsd">
     
+        <bean id="abstractParentBean" class="com.guppy.spring3beans.configurationInheritance.Customer" abstract="true">
+            <property name="country" value="Turkey" />
+	</bean>
+    
 	<bean id="parentBean" class="com.guppy.spring3beans.configurationInheritance.Customer">
             <property name="country" value="Turkey" />
 	</bean>
         
-        <bean id="childBean" parent="parentBean">
+        <bean id="childBean" parent="abstractParentBean">
             <property name="type" value="1"/>
             <property name="action" value="sampleAction"/>
         </bean>
+        
+        <bean id="childBeanTwo" parent="parentBean">
+            <property name="country" value="England" />
+            <property name="type" value="1"/>
+            <property name="action" value="sampleActionTwo"/>
+        </bean>
 
 </beans>
+
